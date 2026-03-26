@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why So Much English? - A Foreigner's Guide to Konglish</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@400;500&family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #012169;
+  --red: #C8102E;
+  --white: #FFFFFF;
+  --cream: #FAF7F2;
+  --off-white: #F2EFE9;
+  --light-navy: #E4EAF6;
+  --light-red: #FCEEF0;
+  --gold: #B8860B;
+  --ink: #1A1209;
+  --mid: #6B6259;
+  --light: #DDD8D0;
+  --green: #2d6a4f;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Playfair Display',Georgia,serif;overflow-x:hidden;}
+.hero{position:relative;background:var(--navy);color:var(--white);padding:90px 40px 80px;text-align:center;overflow:hidden;}
+.hero-uj{position:absolute;inset:0;opacity:0.12;pointer-events:none;}
+.hero-ko-wm{position:absolute;font-family:'Nanum Myeongjo',serif;font-size:clamp(90px,24vw,260px);font-weight:800;color:rgba(255,255,255,0.04);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:-6px;z-index:0;}
+.hero-content{position:relative;z-index:2;}
+.hero-flags{display:flex;justify-content:center;align-items:center;gap:14px;margin-bottom:20px;}
+.flag-emoji{font-size:24px;}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,8vw,84px);font-weight:900;line-height:1.0;letter-spacing:-2px;margin-bottom:14px;}
+.hero h1 em{font-style:italic;color:#e8a0a8;}
+.hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,2.2vw,21px);color:rgba(255,255,255,0.5);}
+.hero-author{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.25);margin-top:18px;}
+.uk-stripe{height:6px;background:linear-gradient(to right,var(--navy) 0%,var(--navy) 20%,var(--white) 20%,var(--white) 23%,var(--red) 23%,var(--red) 77%,var(--white) 77%,var(--white) 80%,var(--navy) 80%,var(--navy) 100%);}
+nav{position:sticky;top:0;z-index:100;background:var(--navy);display:flex;justify-content:center;overflow-x:auto;-webkit-overflow-scrolling:touch;border-bottom:4px solid var(--red);}
+nav button{background:none;border:none;color:rgba(255,255,255,0.4);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:14px 22px;cursor:pointer;border-bottom:4px solid transparent;margin-bottom:-4px;white-space:nowrap;transition:color .2s;}
+nav button:hover{color:rgba(255,255,255,0.75);}
+nav button.active{color:#fff;}
+nav button[data-cat="all"].active{border-bottom-color:#fff;}
+nav button[data-cat="False Friend"].active{border-bottom-color:var(--red);}
+nav button[data-cat="Semantic Shift"].active{border-bottom-color:#7ec8e3;}
+nav button[data-cat="Phonological Adaptation"].active{border-bottom-color:#f5c842;}
+nav button[data-cat="New Compound"].active{border-bottom-color:#6be38a;}
+.controls{max-width:640px;margin:32px auto 0;padding:0 24px;}
+.controls input{width:100%;background:var(--white);border:2px solid var(--navy);border-left:5px solid var(--red);border-radius:2px;padding:12px 18px;font-family:'DM Mono',monospace;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s;}
+.controls input:focus{border-color:var(--red);border-left-color:var(--navy);}
+.controls input::placeholder{color:#b0a898;}
+.count-line{text-align:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--mid);text-transform:uppercase;margin:14px 0 28px;}
+.grid{max-width:1180px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
+.section-divider{grid-column:1/-1;padding:32px 0 12px;}
+.sec-inner{display:flex;align-items:center;gap:14px;margin-bottom:8px;}
+.section-divider .line{flex:1;height:2px;}
+[data-section="False Friend"] .line{background:var(--red);}
+[data-section="Semantic Shift"] .line{background:var(--navy);}
+[data-section="Phonological Adaptation"] .line{background:var(--gold);}
+[data-section="New Compound"] .line{background:var(--green);}
+.section-divider h2{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;white-space:nowrap;}
+[data-section="False Friend"] h2{color:var(--red);}
+[data-section="Semantic Shift"] h2{color:var(--navy);}
+[data-section="Phonological Adaptation"] h2{color:var(--gold);}
+[data-section="New Compound"] h2{color:var(--green);}
+.cbadge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;padding:3px 8px;border-radius:2px;white-space:nowrap;}
+[data-section="False Friend"] .cbadge{background:var(--light-red);color:var(--red);}
+[data-section="Semantic Shift"] .cbadge{background:var(--light-navy);color:var(--navy);}
+[data-section="Phonological Adaptation"] .cbadge{background:#fef9e7;color:var(--gold);}
+[data-section="New Compound"] .cbadge{background:#edf6f0;color:var(--green);}
+.sec-stripe{height:3px;border-radius:2px;opacity:0.3;}
+[data-section="False Friend"] .sec-stripe{background:linear-gradient(to right,var(--red),var(--white),var(--navy),var(--white),var(--red));}
+[data-section="Semantic Shift"] .sec-stripe{background:linear-gradient(to right,var(--navy),var(--white),var(--red),var(--white),var(--navy));}
+[data-section="Phonological Adaptation"] .sec-stripe{background:linear-gradient(to right,var(--gold),var(--white),var(--navy),var(--white),var(--gold));}
+[data-section="New Compound"] .sec-stripe{background:linear-gradient(to right,var(--green),var(--white),var(--navy),var(--white),var(--green));}
+.card{background:var(--white);border-radius:2px;border:1.5px solid var(--light);border-top:5px solid;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;animation:fadeUp .3s ease both;position:relative;}
+.card[data-cat="False Friend"]{border-top-color:var(--red);}
+.card[data-cat="Semantic Shift"]{border-top-color:var(--navy);}
+.card[data-cat="Phonological Adaptation"]{border-top-color:var(--gold);}
+.card[data-cat="New Compound"]{border-top-color:var(--green);}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(1,33,105,0.13);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+.card-tg-wm{position:absolute;right:-8px;bottom:-8px;width:80px;height:80px;opacity:0.05;pointer-events:none;z-index:0;}
+.card-top{padding:18px 18px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;position:relative;z-index:1;}
+.card-ko{font-family:'Nanum Myeongjo','Noto Sans KR',serif;font-size:40px;font-weight:700;line-height:1;color:var(--ink);}
+.card-rom{font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);margin-top:4px;letter-spacing:0.5px;}
+.badge{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0;margin-top:4px;}
+.card[data-cat="False Friend"] .badge{background:var(--light-red);color:var(--red);}
+.card[data-cat="Semantic Shift"] .badge{background:var(--light-navy);color:var(--navy);}
+.card[data-cat="Phonological Adaptation"] .badge{background:#fef9e7;color:var(--gold);}
+.card[data-cat="New Compound"] .badge{background:#edf6f0;color:var(--green);}
+.audio-btn{background:var(--light-navy);border:none;border-radius:50%;width:35px;height:35px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:transform 0.2s;flex-shrink:0;}
+.audio-btn:hover{transform:scale(1.15);background:var(--light);}
+.audio-btn.playing{background:var(--red);color:white;}
+.card-en{padding:0 18px 10px;font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);position:relative;z-index:1;}
+.card-en b{color:var(--ink);font-weight:500;}
+.card-meaning{padding:10px 18px 12px;background:var(--off-white);border-top:1px solid var(--light);font-size:13.5px;line-height:1.6;color:var(--ink);font-family:'Playfair Display',serif;position:relative;z-index:1;}
+.card-details{display:none;border-top:1px solid var(--light);}
+.card.open .card-details{display:block;}
+.dr{padding:10px 18px;border-bottom:1px solid var(--light);display:grid;grid-template-columns:130px 1fr;gap:10px;}
+.dl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);padding-top:2px;}
+.dv{font-family:'Playfair Display',serif;font-size:12.5px;line-height:1.55;color:var(--ink);}
+.ll{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);display:block;margin-top:8px;margin-bottom:1px;}
+.ll:first-child{margin-top:0;}
+.nk-row{padding:12px 18px;background:#eef1fa;display:grid;grid-template-columns:130px 1fr;gap:10px;border-top:1px solid var(--light);border-left:4px solid var(--navy);}
+.nk-ko{font-family:'Nanum Myeongjo',serif;font-size:19px;font-weight:700;display:block;color:var(--navy);}
+.nk-note{font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);margin-top:3px;display:block;font-style:italic;}
+.ex-row{padding:11px 18px 14px;background:var(--off-white);border-top:1px solid var(--light);border-left:4px solid var(--red);}
+.ex-ko{font-family:'Nanum Myeongjo','Noto Sans KR',serif;font-size:15px;font-weight:700;color:var(--ink);}
+.ex-en{font-family:'Playfair Display',serif;font-style:italic;font-size:12.5px;color:var(--mid);margin-top:3px;}
+.toggle{text-align:center;padding:7px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);border-top:1px solid var(--light);transition:color .2s;background:var(--white);}
+.card.open .toggle{color:var(--red);}
+footer{background:var(--navy);color:rgba(255,255,255,0.35);text-align:center;padding:50px 24px 40px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;line-height:2.4;position:relative;}
+footer strong{color:rgba(255,255,255,0.6);}
+.footer-ko{font-family:'Nanum Myeongjo',serif;font-size:15px;color:rgba(255,255,255,0.12);display:block;margin-top:12px;letter-spacing:5px;}
+.footer-trigrams{display:flex;justify-content:center;gap:24px;margin-top:16px;opacity:0.2;}
+.footer-trigrams span{font-size:22px;color:rgba(255,255,255,0.7);}
+@media(max-width:600px){
+.hero{padding:56px 20px 48px;}
+.grid{grid-template-columns:1fr;padding:0 16px 60px;}
+.dr,.nk-row{grid-template-columns:1fr;gap:3px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-uj" viewBox="0 0 60 40" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <rect width="60" height="40" fill="#012169"/>
+    <line x1="0" y1="0" x2="60" y2="40" stroke="white" stroke-width="8"/>
+    <line x1="60" y1="0" x2="0" y2="40" stroke="white" stroke-width="8"/>
+    <line x1="0" y1="0" x2="60" y2="40" stroke="#C8102E" stroke-width="4"/>
+    <line x1="60" y1="0" x2="0" y2="40" stroke="#C8102E" stroke-width="4"/>
+    <rect x="24" y="0" width="12" height="40" fill="white"/>
+    <rect x="0" y="14" width="60" height="12" fill="white"/>
+    <rect x="26" y="0" width="8" height="40" fill="#C8102E"/>
+    <rect x="0" y="16" width="60" height="8" fill="#C8102E"/>
+  </svg>
+  <div class="hero-ko-wm">콩글리시</div>
+  <div class="hero-content">
+    <div class="hero-flags">
+      <span class="flag-emoji">🇬🇧</span>
+      <p class="hero-eyebrow">Dictionary · BA Project</p>
+      <span class="flag-emoji">🇰🇷</span>
+    </div>
+    <h1>Why So Much <em>English?</em></h1>
+    <p class="hero-sub">A Foreigner's Guide to Konglish</p>
+    <p class="hero-author">Paula Julia Musztyfaga</p>
+  </div>
+</header>
+
+<div class="uk-stripe"></div>
+
+<nav>
+  <button data-cat="all" class="active">All Entries</button>
+  <button data-cat="False Friend">False Friends</button>
+  <button data-cat="Semantic Shift">Semantic Shifts</button>
+  <button data-cat="Phonological Adaptation">Phonological</button>
+  <button data-cat="New Compound">New Compounds</button>
+</nav>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Search in Korean, English, or romanization...">
+</div>
+<p class="count-line" id="count">70 entries</p>
+<div class="grid" id="grid"></div>
+
+<div class="uk-stripe"></div>
+<footer>
+  <strong>Why So Much English? A Foreigner's Guide to Konglish</strong><br>
+  Paula Julia Musztyfaga · BA Diploma Project<br>
+  Linguistic framework: Haugen (1950) · Tranter (2000) · Schaffer (2010)
+  <span class="footer-ko">영어가 왜 이렇게 많아요?</span>
+  <div class="footer-trigrams">
+    <span>☰</span><span>☷</span><span>☵</span><span>☲</span>
+  </div>
+</footer>
+
+<script>
+const data=[
+  {ko:"서비스",r:"Seo-bi-seu",c:"False Friend",en:"service",sk:"A complimentary extra - free side dish, bonus item, or gift from a shopkeeper. NOT customer service.",h:"Loanword (importation without morphemic substitution); semantic shift post-borrowing",s:"Structural preservation with semantic extension",p:"Vowel epenthesis of /s\u0259\u02d0v\u026as/; vowels inserted after each consonant cluster to satisfy Korean CVC syllable structure",nk:"\ub099\uc0ac (Bong-sa)",nn:"Pure Korean: duty/service",ex:"\uc0ac\uc7a5\ub2d8\uc774 \uc11c\ube44\uc2a4\ub85c \uc8fc\uc168\uc5b4\uc694. - The owner gave it to us for free."},
+  {ko:"\ubbf8\ud305",r:"Mi-ting",c:"False Friend",en:"meeting",sk:"A blind date or group dating event between strangers. NOT a business meeting.",h:"Loanword (importation); full semantic reorientation in Korean context",s:"Structural preservation with semantic narrowing/shift",p:"Near-direct transliteration of /mi\u02d0t\u026a\u014b/; minimal phonological modification required",nk:"None documented",nn:"Dating culture differs significantly in North Korea",ex:"\uc774\ubc88 \uc8fc\ub9d0\uc5d0 \ubbf8\ud305 \uc788\uc5b4. - I have a blind date this weekend."},
+  {ko:"\ud074\ub798\uc2a4",r:"Keul-lae-seu",c:"False Friend",en:"class",sk:"High quality, sophistication, or style - 'that's classy'. NOT a school classroom.",h:"Loanword (importation); semantic extension to abstract quality",s:"Structural preservation with semantic broadening",p:"Epenthesis of /kl\xe6s/: initial kl- cluster broken by inserting /eu/; paragogic -\u016d after final /s/",nk:"\uaca9\uc870 (Gyeok-jo)",nn:"Sino-Korean: dignity/refinement",ex:"\ud074\ub798\uc2a4\uac00 \ub2e4\ub974\ub124\uc694. - That's really classy."},
+  {ko:"\ub2e4\uc774\uc5b4\ud2b8",r:"Da-i-eo-teu",c:"False Friend",en:"diet",sk:"Weight loss or slimming - always implies trying to lose weight. NOT any food-related plan.",h:"Loanword (importation); semantic narrowing post-borrowing",s:"Structural preservation with semantic narrowing",p:"Vowel epenthesis of /da\u026a\u0259t/; /t/ receives paragogic -\u016d (Tranter Rule 1)",nk:"\uc0b4\ube60\uae30 (Sal-ppae-gi)",nn:"Pure Korean: fat-removing",ex:"\ub2e4\uc774\uc5b4\ud2b8 \uc911\uc774\uc5d0\uc694. - I'm trying to lose weight."},
+  {ko:"\ucee4\ub2dd",r:"Keo-ning",c:"False Friend",en:"cunning",sk:"Cheating on a test. NOT cleverness. Arrived via Japanese kanningu.",h:"Loanword via Japanese phonological mediation (indirect importation)",s:"Structural preservation via Japanese intermediary",p:"Japanese-mediated borrowing; /k\u028cn\u026a\u014b/ to Japanese kanningu to Korean \ucee4\ub2dd",nk:"\uc18d\uc784 (So-gim)",nn:"Pure Korean: deception",ex:"\ucee4\ub2dd\ud558\ub2e4\uac00 \uac78\ub838\uc5b4\uc694. - I got caught cheating."},
+  {ko:"\ud578\ub4e4",r:"Haen-deul",c:"False Friend",en:"handle",sk:"The steering wheel of a car. NOT a general handle or grip.",h:"Loanword (importation); semantic narrowing to automotive domain",s:"Structural preservation with semantic narrowing",p:"Adaptation of /h\xe6ndl/; paragogic -\u016d inserted after final /l/ (Tranter Rule 1)",nk:"\ubc29\ud5a5\ud310 (Bang-hyang-pan)",nn:"Pure Korean: direction board",ex:"\ud578\ub4e4\uc744 \uc67c\ucabd\uc73c\ub85c \ub3cc\ub9ac\uc138\uc694. - Turn the steering wheel left."},
+  {ko:"\ub9e4\uc9c1",r:"Mae-jik",c:"False Friend",en:"magic",sk:"A permanent marker pen. NOT supernatural power or illusion.",h:"Loanword (importation); metonymic semantic shift",s:"Structural preservation with semantic shift",p:"Transliteration of /m\xe6\u02a4\u026ak/; /\u02a4/ to /j/ approximation",nk:"\uc601\uad6c\uc78c\ud06c\ud39c",nn:"Descriptive native compound",ex:"\ub9e4\uc9c1 \ud39c \uc788\uc5b4\uc694? - Do you have a permanent marker?"},
+  {ko:"\uc0e4\ud504",r:"Sya-peu",c:"False Friend",en:"sharp",sk:"A mechanical pencil. NOT an adjective meaning having a fine edge.",h:"Loanword; semantic shift from adjective to noun",s:"Structural preservation with part-of-speech shift",p:"/f/ to /p/ substitution (Tranter Rule 6); paragogic -\u016d added",nk:"\uc790\ub3d9\uc5f0\ud544 (Ja-dong-yeon-pil)",nn:"Pure Korean: automatic pencil",ex:"\uc0e4\ud504 \uc880 \ube4c\ub824\uc904\ub798? - Can I borrow your mechanical pencil?"},
+  {ko:"\uc2a4\ud0a8",r:"Seu-kin",c:"False Friend",en:"skin",sk:"Toner - the watery skincare product applied after cleansing. NOT the skin of the body.",h:"Loanword; semantic narrowing to cosmetics domain",s:"Structural preservation with semantic narrowing",p:"Epenthesis of /sk\u026an/: s+k cluster broken by inserting /eu/ (Tranter Rule 2)",nk:"\ud654\uc7a5\uc218 (Hwa-jang-su)",nn:"Sino-Korean: cosmetic water",ex:"\uc138\uc548 \ud6c4\uc5d0 \uc2a4\ud0a8\uc744 \ubc14\ub974\uc138\uc694. - Apply toner after cleansing."},
+  {ko:"\uc6d0\ud53c\uc2a4",r:"Won-pi-seu",c:"False Friend",en:"one-piece",sk:"A dress (women's clothing). NOT a swimsuit.",h:"Loanword (importation of compound); semantic narrowing",s:"Structural preservation (compound) with semantic narrowing",p:"/f/ to /p/ in 'piece' (Tranter Rule 6); paragogic -\u016d after final /s/",nk:"\ub828\ubcf5 (Ryeon-bok)",nn:"Pure Korean: connected garment",ex:"\uc0c8 \uc6d0\ud53c\uc2a4 \uc0f0\uc5b4\uc694. - I bought a new dress."},
+  {ko:"\ub4dc\ub77c\uc774\ubc84",r:"Deu-ra-i-beo",c:"False Friend",en:"driver",sk:"A screwdriver. NOT a person who drives.",h:"Loanword; semantic narrowing to single tool",s:"Structural preservation with semantic narrowing",p:"dr- cluster broken (Tranter Rule 2); /v/ to /b/ (Tranter Rule 6); final /r/ vocalises",nk:"\ub098\uc0ac\ub3cc\ub9ac\uac1c (Na-sa-dol-li-gae)",nn:"Pure Korean: screw-turner",ex:"\ub4dc\ub77c\uc774\ubc84 \uc880 \ube4c\ub824\uc918. - Can I borrow a screwdriver?"},
+  {ko:"\uc544\ub974\ubc14\uc774\ud2b8",r:"A-reu-ba-i-teu",c:"False Friend",en:"Arbeit (German via Japanese)",sk:"A part-time job. Arrived via Japanese arubaito from German Arbeit (work).",h:"Loanword via Japanese mediation from German (double indirect importation)",s:"Two-stage mediation: German to Japanese to Korean",p:"German Arbeit to Japanese arubaito to Korean \uc544\ub974\ubc14\uc774\ud2b8",nk:"\ubd80\uc5c5 (Bu-eop)",nn:"Sino-Korean: side work",ex:"\uc8fc\ub9d0\uc5d0 \uc544\ub974\ubc14\uc774\ud2b8\ud574\uc694. - I work part-time on weekends."},
+  {ko:"\ud654\uc774\ud305/\ud30c\uc774\ud305",r:"Hwa-i-ting / Pa-i-ting",c:"False Friend",en:"fighting",sk:"Exclamation of encouragement: Go for it! You can do it! NOT combat.",h:"Loanword; semantic shift from physical act to motivational interjection",s:"Structural preservation with complete semantic reorientation",p:"/f/ to /p/ substitution (Tranter Rule 6); /f/ absent from Korean phoneme inventory",nk:"\ud798\ub0b4\uc138\uc694 (Him-nae-se-yo)",nn:"Pure Korean: Please take strength",ex:"\ub0b4\uc77c \uc2dc\ud5d8 \ud30c\uc774\ud305! - Good luck on tomorrow's exam!"},
+  {ko:"\ucf58\uc13c\ud2b8",r:"Kon-sen-teu",c:"False Friend",en:"consent",sk:"An electrical outlet or socket. NOT permission or agreement. From Japanese concentric plug.",h:"Loanword via Japanese mediation; semantic shift to electrical domain",s:"Structural preservation via Japanese intermediary",p:"Truncated from concentric plug via Japanese",nk:"\uc804\uae30\uafb3\uc774 (Jeon-gi-kko-ji)",nn:"Pure Korean: electricity inserter",ex:"\ucf58\uc13c\ud2b8\uac00 \uc5b4\ub514 \uc788\uc5b4\uc694? - Where is the outlet?"},
+  {ko:"\uc6d0\uc15f",r:"Won-syat",c:"False Friend",en:"one shot",sk:"Drinking in one gulp; bottoms up! NOT a single attempt.",h:"Loanword (compound); semantic narrowing to drinking context",s:"Structural preservation (compound) with semantic narrowing",p:"/\u0283/ to /s/ substitution (Korean lacks /\u0283/)",nk:"\ub2e8\uc219\uc5d0 (Dan-su-me)",nn:"Pure Korean: in one breath",ex:"\uc6d0\uc15f \ud558\uc790! - Bottoms up!"},
+  {ko:"\ube44\ub2d0",r:"Bi-nil",c:"False Friend",en:"vinyl",sk:"A plastic bag of any kind. NOT vinyl the material or a vinyl record.",h:"Loanword; semantic narrowing to plastic bag",s:"Structural preservation with semantic narrowing",p:"/v/ to /b/ substitution (Tranter Rule 6)",nk:"\ube44\ub2d0\uc8fc\uba38\ub2c8 (Bi-nil-ju-meo-ni)",nn:"Descriptive compound retained",ex:"\ube44\ub2d0 \ubd09\ud22c \uc8fc\uc138\uc694. - Please give me a plastic bag."},
+  {ko:"\ubc84\ubc84\ub9ac",r:"Beo-beo-ri",c:"False Friend",en:"Burberry (brand)",sk:"Any trench coat or raincoat - generalized trademark. Like 'Kleenex' for tissues.",h:"Loanword; generalized trademark with semantic extension",s:"Trademark generalization via Japanese intermediary",p:"Burberry to Japanese babari-koto to Korean \ubc84\ubc84\ub9ac",nk:"\ube44\uc637 (Bi-ot)",nn:"Pure Korean: rain clothes",ex:"\ube44 \uc62c \uac83 \uac19\uc544\uc11c \ubc84\ubc84\ub9ac \uc785\uc5c8\uc5b4\uc694. - It looked like rain so I put on my trench coat."},
+  {ko:"\uc0d8\ub7ec\ub9ac\ub9e8",r:"Sael-leo-ri-maen",c:"False Friend",en:"salary man",sk:"A white-collar office worker in a suit. NOT simply anyone who earns a salary.",h:"Loanword (compound); semantic narrowing to specific worker type",s:"Structural preservation (compound) with semantic narrowing",p:"Both elements adapted: salary to \uc0d8\ub7ec\ub9ac; man to \ub9e8",nk:"\uc0ac\ubb34\uc6d0 (Sa-mu-won)",nn:"Sino-Korean: office worker",ex:"\uc544\ubc84\uc9c0\ub294 \uc804\ud615\uc801\uc778 \uc0d8\ub7ec\ub9ac\ub9e8\uc774\uc5d0\uc694. - My father is a typical office worker."},
+  {ko:"\uc2a4\ud0a8\uc2ed",r:"Seu-kin-sip",c:"False Friend",en:"skinship (invented)",sk:"Platonic physical closeness between friends - holding hands, hugging, linking arms. NOT sexual.",h:"Loanblend: English 'skin' + '-ship' suffix; Korean invention",s:"New creation (Schaffer Cat. 4) - does not exist in English",p:"Korean invention using English morphemes: /sk\u026an/ with epenthesis + '-ship'",nk:"\uc815\ubd99\uc774\uae30 (Jeong-but-i-gi)",nn:"Pure Korean: affection-building",ex:"\uce5c\ud55c \uce5c\uad6c\ggr\uc2a4\ud0a8\uc2ed\uc774 \uc790\uc5f0\uc2a4\ub7ec\uc6cc\uc694. - Physical closeness between close friends is natural."},
+  {ko:"\ud0c8\ub7f0\ud2b8",r:"Tael-reon-teu",c:"False Friend",en:"talent",sk:"A television celebrity or TV actor. NOT a natural skill or ability.",h:"Loanword; semantic narrowing to media celebrity",s:"Structural preservation with semantic narrowing",p:"Adaptation of /t\xe6l\u0259nt/; /l/ to /r/ in medial position; paragogic -\u016d after /t/",nk:"\ubc30\uc6b0 (Bae-u)",nn:"Pure Korean: actor",ex:"\uadf8 \ud0c8\ub7f0\ud2b8 \uc815\ub9d0 \uc720\uba85\ud574\uc694. - That TV star is really famous."},
+  {ko:"\uc2f8\uc778",r:"Ssa-in",c:"False Friend",en:"sign",sk:"An autograph or celebrity signature. NOT a road sign or signage.",h:"Loanword (importation); semantic narrowing to celebrity autograph",s:"Structural preservation with semantic narrowing",p:"Vowel lengthening; near-direct transliteration of /sa\u026an/",nk:"\uc218\ud45c (Su-pyo)",nn:"Sino-Korean: signature",ex:"\uc2f8\uc778 \ud574\uc8fc\uc2e4 \uc218 \uc788\uc5b4\uc694? - Could you give me your autograph?"},
+  {ko:"\ubc31",r:"Baek",c:"False Friend",en:"bag",sk:"A fashionable handbag. NOT the back of the body or a general bag.",h:"Loanword (importation); semantic narrowing to fashionable handbag",s:"Structural preservation with semantic narrowing",p:"Adaptation of /b\xe6g/; final /g/ to /k/ coda; minimal phonological change",nk:"\uac00\ubc29 (Ga-bang)",nn:"Pure Korean: bag (general)",ex:"\uc800 \ubc31 \uc5b4\ub514\uc11c \uc0f0\uc5b4\uc694? - Where did you buy that bag?"},
+  {ko:"\ubaa8\ub2dd\ucf5c",r:"Mo-ning-kol",c:"False Friend",en:"morning call",sk:"A hotel wake-up call. NOT a phone call made in the morning.",h:"Loanblend: new compound using English morphemes (pseudo-English)",s:"New creation (Schaffer Cat. 4): morning + call",p:"morning /m\u0254\u02d0n\u026a\u014b/ to \ubaa8\ub2dd; call /k\u0254\u02d0l/ to \ucf5c; compound is a Korean invention",nk:"\uae68\uc6b0\uae30\uc804\ud654 (Kkae-u-gi-jeon-hwa)",nn:"Pure Korean: waking-up telephone",ex:"\ubaa8\ub2dd\ucf5c 6\uc2dc\uc5d0 \ubd80\ud0c1\ub4dc\ub824\uc694. - Wake-up call at 6 a.m. please."},
+  {ko:"\uc544\ud30c\ud2b8",r:"A-peu-teu",c:"Semantic Shift",en:"apartment",sk:"A large residential high-rise complex. NOT a single rental unit - semantic narrowing.",h:"Loanword; semantic narrowing to building complex",s:"Truncation (Schaffer Cat. 2): /\u0259p\u0251\u02d0tm\u0259nt/ shortened",p:"Final cluster -ment dropped; remaining sounds phonologically adapted",nk:"\uc0b4\ub9bc\uc9d1 / \uace0\uce35\uc9d1",nn:"Pure Korean: dwelling / high-rise house",ex:"\uc0c8 \uc544\ud30c\ud2b8\ub85c \uc774\uc0ac\ud588\uc5b4\uc694. - I moved to a new apartment complex."},
+  {ko:"\uc624\ud508",r:"O-peu-un",c:"Semantic Shift",en:"open",sk:"Grand opening of a new store or business. NOT a general state of being open.",h:"Loanword; semantic narrowing to commercial grand-opening event",s:"Structural preservation with semantic narrowing",p:"Adaptation of /o\u028ap\u0259n/; paragogic -\u016d after final /n/ (Tranter Rule 1)",nk:"\uac1c\uc7a5 (Gae-jang)",nn:"Sino-Korean: opening establishment",ex:"\ub0b4\uc77c \uc624\ud508\uc774\uc5d0\uc694. - It's the grand opening tomorrow."},
+  {ko:"\ub178\ud2b8\ubd81",r:"No-teu-buk",c:"Semantic Shift",en:"notebook",sk:"A laptop computer. NOT a paper notebook.",h:"Loanword (compound); semantic shift - means laptop, not notebook",s:"Structural preservation (compound) with semantic shift",p:"note to \ub178\ud2b8; book to \ubd81. Compound meaning diverges entirely from English",nk:"\ud734\ub300\uc6a9\ucef4\ud4e8\ud130",nn:"Sino-Korean: portable computer",ex:"\ub178\ud2b8\ubd81 \uc880 \ube4c\ub824\uc904\ub798\uc694? - Can I borrow your laptop?"},
+  {ko:"\ud3ec\uc778\ud2b8",r:"Po-in-teu",c:"Semantic Shift",en:"point",sk:"Loyalty points or rewards in a store program. Semantic narrowing.",h:"Loanword; semantic narrowing to retail loyalty context",s:"Structural preservation with semantic narrowing",p:"Adaptation of /p\u0254\u026ant/; paragogic -\u016d after final /t/",nk:"\uc801\ub9bd\uae08 (Jeong-rip-geum)",nn:"Pure Korean: accumulated funds",ex:"\ud3ec\uc778\ud2b8 \uc801\ub9bd\ud574 \ub4dc\ub9b4\uae4c\uc694? - Would you like to earn loyalty points?"},
+  {ko:"\uc290\ud37c",r:"Syu-peo",c:"Semantic Shift",en:"super (supermarket)",sk:"A small neighbourhood grocery or convenience store. NOT a large supermarket.",h:"Loanword; truncation + semantic narrowing",s:"Truncation (Schaffer Cat. 2): supermarket to \uc290\ud37c",p:"Clipping to first morpheme; /r/ vocalises to /eo/ in final position",nk:"\ub300\ud615\uc0c1\uc810 (Dae-hyeong Sang-jeom)",nn:"Sino-Korean: large store",ex:"\uc290\ud37c\uc5d0\uc11c \uc6b0\uc720 \uc0ac\uc654\uc5b4. - I bought milk at the convenience store."},
+  {ko:"\ud56b\ub3c4\uadf8",r:"Hat-do-geu",c:"Semantic Shift",en:"hot dog",sk:"A corn dog - battered sausage on a stick, deep-fried. NOT a sausage in a bun.",h:"Loanword (compound); semantic shift to different food item",s:"Structural preservation (compound) with semantic shift",p:"hot to \ud56b; dog to \ub3c4\uadf8 with paragogic -\u016d",nk:"\uc625\uc218\uc218\uc18c\uc2dc\uc9c0",nn:"Descriptive compound",ex:"\ud56b\ub3c4\uadf8 \ud558\ub098 \uc8fc\uc138\uc694. - One corn dog please."},
+  {ko:"\uc5d0\uc5b4\ucf64",r:"E-eo-keun",c:"Semantic Shift",en:"air conditioner",sk:"Air conditioner. Both parts of the compound abbreviated.",h:"Loanword; compound truncation",s:"Truncation (Schaffer Cat. 2): air conditioner to \uc5d0\uc5b4\ucf64",p:"air + conditioner to \uc5d0\uc5b4 + \ucf64. NK preserves initial /r/ - N-S divergence",nk:"\ub099\ud48d\uae30 (Raeng-pung-gi)",nn:"North Korean: cold air machine",ex:"\uc5d0\uc5b4\ucf64 \uc880 \ucf1c\uc904\ub798\uc694? - Can you turn on the AC?"},
+  {ko:"\ub9ac\ubaa8\ucf64",r:"Ri-mo-keon",c:"Semantic Shift",en:"remote control",sk:"A remote control for any electronic device. Truncated compound.",h:"Loanword; compound truncation",s:"Truncation (Schaffer Cat. 2): remote + control to \ub9ac\ubaa8\ucf64",p:"remote to \ub9ac\ubaa8; control to \ucf64. Final /l/ dropped",nk:"\uc6d0\uaca9\uc870\uc885\uae30 (Won-gyeok-jo-jong-gi)",nn:"Sino-Korean: remote control device",ex:"\ub9ac\ubaa8\ucf64 \uc880 \uc8fc\uc138\uc694. - Please pass me the remote."},
+  {ko:"\ub7ec\ub2dd\uba38\uc2e0",r:"Reo-ning-meo-sin",c:"Semantic Shift",en:"running machine",sk:"A treadmill. 'Running machine' is not standard English.",h:"Loanblend: pseudo-English compound created in Korea",s:"New creation (Schaffer Cat. 4): running + machine",p:"Korean invention with English morphemes; both elements phonologically adapted",nk:"\ub2ec\ub9ac\uae30\uae30\uacc4",nn:"Descriptive pure Korean compound",ex:"\ub7ec\ub2dd\uba38\uc2e0\uc5d0\uc11c 30\ubd84 \ub6f0\uc5c8\uc5b4\uc694. - I ran on the treadmill for 30 minutes."},
+  {ko:"\uc544\uc774\uc1fc\ud551",r:"A-i-syo-ping",c:"Semantic Shift",en:"eye shopping (invented)",sk:"Window shopping - browsing without buying. Does not exist in English.",h:"Loanblend: new compound using English morphemes",s:"New creation (Schaffer Cat. 4): eye + shopping",p:"/\u0283/ to /s/ in shopping; compound is a Korean invention",nk:"\uad6c\uacbd (Gu-gyeong)",nn:"Pure Korean: sightseeing",ex:"\uc624\ub298\uc740 \uadf8\ub0e5 \uc544\uc774\uc1fc\ud551\ub9cc \ud588\uc5b4\uc694. - Today I just went window shopping."},
+  {ko:"\ucf54\ub108",r:"Ko-neo",c:"Semantic Shift",en:"corner",sk:"A section or department within a store, or a TV show segment. NOT a physical corner.",h:"Loanword; semantic extension to abstract organizational unit",s:"Structural preservation with semantic extension",p:"Adaptation of /k\u0254\u02d0n\u0259r/; final /r/ vocalises to /eo/",nk:"\uad6c\uc5ed (Gu-yeok)",nn:"Sino-Korean: section/zone",ex:"\uadf8 \uac00\uac8c \ud654\uc7a5\ud488 \ucf54\ub108\uac00 \uc88b\uc544\uc694. - That store's cosmetics section is great."},
+  {ko:"\ub4dc\ub77c\ub9c8",r:"Deu-ra-ma",c:"Semantic Shift",en:"drama",sk:"A television serial drama (K-drama). NOT theatre or 'unnecessary fuss'.",h:"Loanword; semantic narrowing to TV serial genre",s:"Structural preservation with semantic narrowing",p:"Epenthesis of /dr\u0251\u02d0m\u0259/: dr- cluster broken (Tranter Rule 2)",nk:"\ub828\uc18d\uadfb (Ryeon-sok-guk)",nn:"Pure Korean: continuous play/serial",ex:"\uc694\uc998 \ubb34\uc2a8 \ub4dc\ub77c\ub9c8 \ubd10\uc694? - What drama are you watching?"},
+  {ko:"\ud32c\ud2f0",r:"Paen-ti",c:"Semantic Shift",en:"panty / panties",sk:"Underwear for any gender. NOT only women's underwear as in English.",h:"Loanword; semantic broadening to include all genders",s:"Structural preservation with semantic broadening",p:"Near-direct transliteration of /p\xe6nti/",nk:"\uc18d\uc637 (Sog-ot)",nn:"Pure Korean: inner clothes",ex:"\ud32c\ud2f0 \uc5b4\ub514\uc11c \uc0f0\uc5b4? - Where did you buy your underwear?"},
+  {ko:"\uc544\uc774\ub514",r:"A-i-di",c:"Semantic Shift",en:"ID",sk:"A username or login ID for a website or app. NOT a physical identity document.",h:"Loanword (initialism); semantic narrowing to digital username",s:"Initialism (Schaffer Cat. 3): ID spelled out phonologically",p:"I-D pronounced individually: /a\u026a/ to \uc544\uc774; /di\u02d0/ to \ub514",nk:"\uc0ac\uc6a9\uc790\uba85 (Sa-yong-ja-myeong)",nn:"Pure Korean: user name",ex:"\uc544\uc774\ub514\uac00 \ubf50\uc608\uc694? - What's your username?"},
+  {ko:"A/S",r:"A-peu-teo Seo-bi-seu",c:"Semantic Shift",en:"after-sales service",sk:"Warranty repair service - taking a product back for fixing under guarantee.",h:"Loanword (initialism); semantic narrowing to repair/warranty",s:"Initialism (Schaffer Cat. 3): after-sales service to A/S",p:"Full phrase reduced to A/S; spoken as \uc5d0\uc774\uc5d0\uc2a4",nk:"\uc218\ub9ac\ub099\uc0ac (Su-ri-bong-sa)",nn:"Pure Korean: repair service",ex:"\ud734\ub300\ud3f0 A/S \ub9e1\uacbc\uc5b4\uc694. - I took my phone in for warranty repair."},
+  {ko:"\uce58\ud0a8",r:"Chi-kin",c:"Semantic Shift",en:"chicken",sk:"Fried chicken specifically. NOT the animal or other preparations of chicken.",h:"Loanword (importation); semantic narrowing to Korean fried chicken",s:"Structural preservation with semantic narrowing",p:"/t\u0283/ to /ch/ approximation; final /n/ preserved as coda",nk:"\ub2ed\uace0\uae30 (Dak-go-gi)",nn:"Pure Korean: chicken meat (general)",ex:"\uce58\ud0a8 \uc2dc\ucf1c\uba39\uc790! - Let's order fried chicken!"},
+  {ko:"\ube4c\ub77c",r:"Bil-la",c:"Semantic Shift",en:"villa",sk:"A small low-rise apartment building of 2-4 floors. NOT a luxury country house.",h:"Loanword (importation); semantic narrowing to specific housing type",s:"Structural preservation with semantic narrowing",p:"/v/ to /b/ substitution (Tranter Rule 6); final /\u0259/ to /a/",nk:"\uc0b4\ub9bc\uc9d1 (Sal-lim-jip)",nn:"Pure Korean: dwelling house",ex:"\ube4c\ub77c\uc5d0 \uc0b4\uc544\uc694. - I live in a small apartment building."},
+  {ko:"\uc544\uc774\ub3cc",r:"A-i-dol",c:"Semantic Shift",en:"idol",sk:"A K-pop singer or carefully trained group member. NOT a religious icon or general hero.",h:"Loanword (importation); semantic narrowing to K-pop entertainment",s:"Structural preservation with semantic narrowing",p:"Adaptation of /a\u026ad\u0259l/; final /l/ becomes coda; vowel reduction",nk:"\uc778\ubbfc\ubc30\uc6b0 (In-min Bae-u)",nn:"Pure Korean: People's Actor - state-honoured title",ex:"\uc880\uc544\ud558\ub294 \uc544\uc774\ub3cc\uc774 \ub204\uad6c\uc608\uc694? - Who is your favourite idol?"},
+  {ko:"\uc5e0\ud2f0",r:"Em-ti",c:"Semantic Shift",en:"MT (membership training)",sk:"A group retreat or team-building trip for university clubs or companies.",h:"Loanword (initialism); semantic narrowing to specific social event",s:"Initialism (Schaffer Cat. 3): membership training to MT to \uc5e0\ud2f0",p:"M-T spelled out phonologically: M to \uc5e0; T to \ud2f0",nk:"\uc9d1\ub2e8\ud6c8\ub828 (Jip-dan-hun-ryeon)",nn:"Sino-Korean: group training",ex:"\uc774\ubc88 \uc8fc\ub9d0\uc5d0 \ub3d9\uc544\ub9ac \uc5e0\ud2f0 \uac00\uc694. - I'm going on a club retreat this weekend."},
+  {ko:"\ud578\ub4dc\ud3f0",r:"Haen-deu-pon",c:"Phonological Adaptation",en:"handphone",sk:"Mobile phone or smartphone. 'Handphone' is not standard English.",h:"Loanword (compound); direct phonological adaptation",s:"Structural preservation (compound: hand + phone)",p:"/f/ to /p/ substitution (Tranter Rule 6)",nk:"\uc190\uc804\ud654 (Son-cheon-hwa)",nn:"Pure Korean: hand telephone",ex:"\ud578\ub4dc\ud3f0 \ubc88\ud638\uac00 \ubf50\uc608\uc694? - What's your cell phone number?"},
+  {ko:"\uc544\uc774\uc2a4\ud06c\ub9bc",r:"A-i-seu-keu-rim",c:"Phonological Adaptation",en:"ice cream",sk:"Ice cream. Heavy vowel epenthesis makes this a textbook example of Tranter's rules.",h:"Loanword; extensive phonological modification required",s:"Structural preservation with heavy phonological adaptation",p:"Multiple vowel insertions breaking -sc- and -cr- clusters (Tranter Rule 2)",nk:"\uc5bc\uc74c\ubcf4\uc22d\uc774 (Eoreum-bosung-i)",nn:"Pure Korean: ice fluff",ex:"\uc544\uc774\uc2a4\ud06c\ub9bc \uba39\uc744\ub798\uc694? - Would you like ice cream?"},
+  {ko:"\ucef4\ud4e8\ud130",r:"Keom-pyu-teo",c:"Phonological Adaptation",en:"computer",sk:"Computer. One of the most fundamental modern loanwords in Korean.",h:"Loanword; standard phonological adaptation",s:"Structural preservation",p:"kmp- cluster partially resolved; final /r/ vocalises to /eo/",nk:"\uc804\uc790\uacc4\uc0b0\uae30 (Jeon-ja Gye-san-gi)",nn:"Pure Korean: electronic calculating machine",ex:"\ucef4\ud4e8\ud130 \ucf1c\uc904 \uc218 \uc788\uc5b4\uc694? - Can you turn on the computer?"},
+  {ko:"\ube44\ub514\uc624",r:"Bi-de-o",c:"Phonological Adaptation",en:"video",sk:"Video recording or clip.",h:"Loanword; standard consonant substitution",s:"Structural preservation",p:"/v/ to /b/ substitution (Tranter Rule 6)",nk:"\ub179\ud654\uc790\ub8cc (Nok-hwa-jaryo)",nn:"Pure Korean: recorded material",ex:"\ube44\ub514\uc624 \ucc0d\uc5b4\uc918. - Film me."},
+  {ko:"\uce74\uba54\ub77c",r:"Ka-me-ra",c:"Phonological Adaptation",en:"camera",sk:"Camera of any type.",h:"Loanword; minimal phonological modification",s:"Structural preservation",p:"Near-direct transliteration; /\xe6/ to /a/",nk:"\uc0ac\uc9c4\uae30 (Sa-jin-gi)",nn:"Pure Korean: picture machine",ex:"\uce74\uba54\ub77c \uac00\uc9c0\uace0 \uc654\uc5b4\uc694? - Did you bring a camera?"},
+  {ko:"\ucee4\ud53c",r:"Keo-pi",c:"Phonological Adaptation",en:"coffee",sk:"Coffee. Fully integrated into Korean at all registers.",h:"Loanword; standard substitution and vowel conversion",s:"Structural preservation",p:"/f/ to /p/ (Tranter Rule 6); /\u0252/ to /eo/ (Tranter Rule 4)",nk:"\uac00\ubca0 (Ga-be)",nn:"Archaic Sino-Korean form",ex:"\ucee4\ud53c \ud55c \uc794\n \ud560\uae4c\uc694? - Shall we have a coffee?"},
+  {ko:"\ub098\uc774\ud504",r:"Na-i-peu",c:"Phonological Adaptation",en:"knife",sk:"A knife, especially a Western-style table knife.",h:"Loanword; /f/ substitution",s:"Structural preservation",p:"/f/ to /p/ (Tranter Rule 6); silent /kn-/ not restored",nk:"\uce7c (Kal)",nn:"Pure Korean word for knife",ex:"\ub098\uc774\ud504\ub791 \ud3ec\ud06c \uc8fc\uc138\uc694. - Please give me a knife and fork."},
+  {ko:"\ud14c\uc774\ud504",r:"Te-i-peu",c:"Phonological Adaptation",en:"tape",sk:"Adhesive tape or recording tape.",h:"Loanword; standard /f/ substitution",s:"Structural preservation",p:"/f/ to /p/ (Tranter Rule 6); paragogic -\u016d after final /p/",nk:"\ub179\uc74c\ud14c (Nok-eum-te)",nn:"Sino-Korean: recording tape",ex:"\ud14c\uc774\ud504 \uc788\uc5b4\uc694? - Do you have any tape?"},
+  {ko:"\ubc31\ubbf8\ub7ec",r:"Baek-mi-reo",c:"Phonological Adaptation",en:"back mirror",sk:"Rearview mirror. 'Back mirror' is not standard English.",h:"Loanblend: new compound created in Korea",s:"New creation (Schaffer Cat. 4): back + mirror",p:"Final /r/ in mirror vocalises to /eo/",nk:"\ub4a4\uac70\uc6b8 (Dwi-geo-ul)",nn:"Pure Korean: back mirror",ex:"\ubc31\ubbf8\ub7ec\ub97c \ud655\uc778\ud558\uc138\uc694. - Check your rearview mirror."},
+  {ko:"\uc140\uce74",r:"Sel-ka",c:"Phonological Adaptation",en:"selfie / self-camera",sk:"A selfie. Clipped from self-camera.",h:"Loanword; double truncation",s:"Truncation (Schaffer Cat. 2): self-camera to \uc140\uce74",p:"self to \uc140; camera to \uce74",nk:"\uc790\uc�c (Ja-jjik)",nn:"Pure Korean: self-shot",ex:"\uc140\uce74 \ucc0d\uc790! - Let's take a selfie!"},
+  {ko:"\uc2a4\ud2b8\ub808\uc2a4",r:"Seu-teu-re-seu",c:"Phonological Adaptation",en:"stress",sk:"Stress (emotional or psychological). Used exactly as in English.",h:"Loanword; heavy epenthesis required",s:"Structural preservation with heavy phonological adaptation",p:"Heavy epenthesis breaking st- and -ss clusters (Tranter Rules 1 and 2)",nk:"\uae34\uc7a5 (Gin-jang)",nn:"Sino-Korean: tension",ex:"\uc2a4\ud2b8\ub808\uc2a4 \ub108\ubb34 \ubc1b\uc544\uc694. - I'm under so much stress."},
+  {ko:"\ubc84\uc2a4",r:"Beo-seu",c:"Phonological Adaptation",en:"bus",sk:"A bus. One of the oldest and most stable loanwords.",h:"Loanword; minimal adaptation",s:"Structural preservation",p:"Paragogic -\u016d after final /s/ (Tranter Rule 1). NK uses tense /pp/ - key N-S divergence",nk:"\ube74\uc2a4 (Ppeo-seu)",nn:"North Korean: tense /pp/ - N-S divergence",ex:"\ubc84\uc2a4 \ud0c0\uace0 \uac00\uc694. - Let's go by bus."},
+  {ko:"\uc18c\ud30c",r:"So-pa",c:"Phonological Adaptation",en:"sofa",sk:"A sofa or couch.",h:"Loanword; standard /f/ substitution",s:"Structural preservation",p:"/f/ to /p/ (Tranter Rule 6)",nk:"\uae34\uac78\uc0c1 (Gin-geol-sang)",nn:"Pure Korean: long bench/seat",ex:"\uc18c\ud30c\uc5d0 \uc549\uc73c\uc138\uc694. - Please sit on the sofa."},
+  {ko:"\uc778\ud130\ub137",r:"In-teo-net",c:"Phonological Adaptation",en:"internet",sk:"The internet.",h:"Loanword; standard phonological adaptation",s:"Structural preservation",p:"/r/ to /eo/ in medial position; final /t/ permitted as coda",nk:"\uc778\ud2b8\ub77c\ub137 (In-teu-ra-net)",nn:"North Korea uses domestic intranet Kwangmyong",ex:"\uc778\ud130\ub137 \uc5f0\uacb0\uc774 \uc548 \ub3fc\uc694. - The internet isn't connecting."},
+  {ko:"\ubc14\uc774\ub7ec\uc2a4",r:"Ba-i-reo-seu",c:"Phonological Adaptation",en:"virus",sk:"A computer virus or biological virus.",h:"Loanword; /v/ substitution",s:"Structural preservation",p:"/v/ to /b/ (Tranter Rule 6); paragogic -\u016d after final /s/",nk:"\ube44\ub8e8\uc2a4 (Bi-ru-seu)",nn:"North Korean variant: different vowel pattern",ex:"\ucef4\ud4e8\ud130\uc5d0 \ubc14\uc774\ub7ec\uc2a4\uac00 \uac78\ub838\uc5b4\uc694. - My computer has a virus."},
+  {ko:"\uc624\ucf00\uc774",r:"O-ke-i",c:"Phonological Adaptation",en:"okay",sk:"Okay - used identically to English across all registers.",h:"Loanword (importation); minimal semantic change",s:"Structural preservation",p:"Adaptation of /o\u028ak\u02c8e\u026a/; vowel epenthesis between /k/ and final vowel",nk:"\uc88b\uc2b5\ub2c8\ub2e4 (Jot-seum-ni-da)",nn:"Pure Korean: formal affirmative",ex:"\uc624\ucf00\uc774, \uc54c\uac64\uc5b4\uc694. - Okay, I understand."},
+  {ko:"\ub9ac\ud544",r:"Ri-pil",c:"Phonological Adaptation",en:"refill",sk:"A free or paid refill of a drink or food item.",h:"Loanword (importation); direct phonological adaptation",s:"Structural preservation",p:"/f/ to /p/ substitution (Tranter Rule 6); initial /r/ preserved",nk:"\ub2e4\uc2dc\ucc44\uc6b0\uae30",nn:"Pure Korean: re-filling",ex:"\ub9ac\ud544 \ub3fc\uc694? - Can I get a refill?"},
+  {ko:"\uc0d8\ub4dc\uc704\uce58",r:"Saen-deu-wi-chi",c:"Phonological Adaptation",en:"sandwich",sk:"A sandwich. Phonologically one of the most heavily adapted loanwords.",h:"Loanword (importation); extensive phonological modification",s:"Structural preservation with heavy phonological adaptation",p:"Epenthesis of /s\xe6nw\u026ad\u0292/: -ndw- cluster broken (Tranter Rule 2); /d\u0292/ to /chi/",nk:"\uc0ac\uc774\ub07c\uc6b0\uae30\ube75",nn:"Pure Korean: between-stuffed bread",ex:"\uc0d8\ub4dc\uc704\uce58 \ud558\ub098 \uc8fc\uc138\uc694. - One sandwich please."},
+  {ko:"\uc624\ud508\uce74",r:"O-peu-un-ka",c:"New Compound",en:"open + car (invented)",sk:"A convertible car. Neither 'open car' nor 'openka' exists in standard English.",h:"Loanblend: new compound using English morphemes (pseudo-English)",s:"New creation (Schaffer Cat. 4): open + car",p:"open adapted with paragogic -\u016d + car /k\u0251\u02d0/ to \uce74; Korean invention",nk:"\ubb34\uac1c\ucc28 (Mu-gae-cha)",nn:"Pure Korean: roofless car",ex:"\uc624\ud508\uce74 \ud0c0\uace0 \ub4dc\ub77c\uc774\ube0c \uac00\uc790! - Let's go for a drive in a convertible!"},
+  {ko:"\uc6d0\ub8f8",r:"Won-rum",c:"New Compound",en:"one-room (invented)",sk:"A studio apartment (single-room flat). Not standard English.",h:"Loanblend: new compound using English morphemes",s:"New creation (Schaffer Cat. 4): one + room",p:"one /w\u028cn/ to \uc6d0; room /ru\u02d0m/ to \ub8f8. Korean invention",nk:"\ub2e8\uce78\ubc29 (Dan-kan-bang)",nn:"Pure Korean: single-room",ex:"\uc6d0\ub8f8 \uad6c\ud558\uace0 \uc788\uc5b4\uc694. - I'm looking for a studio apartment."},
+  {ko:"\ud328\ub529",r:"Pae-ding",c:"New Compound",en:"padding",sk:"A padded winter jacket (puffer coat). NOT the material padding.",h:"Loanword; semantic narrowing to specific garment",s:"Structural preservation with semantic narrowing",p:"Adaptation of /p\xe6d\u026a\u014b/; near-direct transliteration",nk:"\uc19f\uc637 (Som-ot)",nn:"Pure Korean: cotton-stuffed garment",ex:"\ub0a0\uc528\uac00 \ucd94\uc6cc\uc11c \ud328\ub529 \uc785\uc5c8\uc5b4\uc694. - It's cold so I wore my puffer jacket."},
+  {ko:"\ud5ec\uc2a4",r:"Hel-seu",c:"New Compound",en:"health (club)",sk:"A gym or fitness centre. Clipped from 'health club'.",h:"Loanword; truncation",s:"Truncation (Schaffer Cat. 2): health club to \ud5ec\uc2a4",p:"/\u03b8/ to /s/ (Korean lacks /\u03b8/); paragogic -\u016d added",nk:"\uccb4\uc721\uad00 (Che-yuk-gwan)",nn:"Sino-Korean: physical training hall",ex:"\ud5ec\uc2a4\uc7a5\uc5d0\uc11c \uc6b4\ub3d9\ud574\uc694. - I work out at the gym."},
+  {ko:"\ub9e8\uc158",r:"Maen-syeon",c:"New Compound",en:"mansion",sk:"A large, upscale apartment building. NOT a detached country house.",h:"Loanword; semantic shift from house to luxury apartment block",s:"Structural preservation with semantic shift",p:"/\u0283/ to /sy/ approximation; -ion to \uc158",nk:"\uace0\uae09\uc0b4\ub9bc\uc9d1",nn:"Pure Korean: high-class dwelling",ex:"\uc800 \ub9e8\uc158\uc5d0 \uc0b4\uace0 \uc2f6\uc5b4\uc694. - I want to live in that luxury apartment building."},
+  {ko:"\uc624\ud1a0\ubc14\uc774",r:"O-to-ba-i",c:"New Compound",en:"autobike / motorbike",sk:"A motorcycle. Compound formed from auto + bike.",h:"Loanblend: auto + bike - not standard English combination",s:"New creation (Schaffer Cat. 4): auto + bike",p:"auto to \uc624\ud1a0; bike to \ubc14\uc774 (final /k/ dropped)",nk:"\ubaa8\ud130\ucc28 (Mo-teo-cha)",nn:"Sino-Korean: motor vehicle",ex:"\uc624\ud1a0\ubc14\uc774 \ud0c0\uace0 \uc654\uc5b4\uc694. - I came on a motorcycle."},
+  {ko:"\ub178\ud2b8",r:"No-teu",c:"New Compound",en:"note",sk:"A paper notebook or notepad. Semantic broadening from note to notebook.",h:"Loanword; semantic broadening from single item to container",s:"Structural preservation with semantic broadening",p:"Adaptation of /no\u028at/; paragogic -\u016d after final /t/",nk:"\uacf5\ucc45 (Gong-chaek)",nn:"Pure Korean: exercise book",ex:"\ub178\ud2b8\uc5d0 \ud544\uae30\ud588\uc5b4\uc694. - I took notes in my notebook."},
+  {ko:"\uc624\ud53c\uc2a4\ud154",r:"O-pi-seu-tel",c:"New Compound",en:"officetel (invented)",sk:"A studio flat that functions as both a residence and a small office. Blends 'office' and 'hotel' - does not exist in English.",h:"Loanblend: new compound created in Korea using English morphemes (pseudo-English)",s:"New creation (Schaffer Cat. 4): office + hotel fused into Korean-specific real-estate term",p:"/f/ to /p/ in office (Tranter Rule 6); hotel to \ud154 (truncation); compound is a Korean invention",nk:"\uc0b4\ub9bc\uc9d1 (Sal-lim-jip)",nn:"Pure Korean: dwelling house",ex:"\uc624\ud53c\uc2a4\ud154\uc5d0\uc11c \ud63c\uc790 \uc0b4\uc544\uc694. - I live alone in an officetel."},
+  {ko:"\uc6d0\ud50c\ub7ec\uc2a4\uc6d0",r:"Won-peul-leo-seu-won",c:"New Compound",en:"one plus one (invented)",sk:"Buy one get one free - a retail promotion. 'One plus one' is not standard English retail terminology.",h:"Loanblend: English numerals and mathematical operator compounded in Korean retail context",s:"New creation (Schaffer Cat. 4): one + plus + one - Korean retail invention",p:"one /w\u028cn/ to \uc6d0 (x2); plus /pl\u028cs/ to \ud50c\ub7ec\uc2a4; epenthesis of pl- cluster (Tranter Rule 2)",nk:"1+1\ud589\uc0ac",nn:"Promotional term used similarly",ex:"\uc774\uac70 \uc6d0\ud50c\ub7ec\uc2a4\uc6d0\uc774\uc5d0\uc694! - This is buy one get one free!"},
+  {ko:"\ud53c\ud305\ub8f8",r:"Pi-ting-rum",c:"New Compound",en:"fitting room",sk:"A changing room or dressing room in a shop.",h:"Loanword (importation of compound); slight semantic broadening",s:"Structural preservation (compound: fitting + room)",p:"/f/ to /p/ in fitting (Tranter Rule 6); room /ru\u02d0m/ to \ub8f8",nk:"\uc637\uac08\uc544\uc785\ub294\uacf3",nn:"Pure Korean: clothes-changing place",ex:"\ud53c\ud305\ub8f8 \uc5b4\ub514 \uc788\uc5b4\uc694? - Where is the fitting room?"}
+];
+
+const catLabel={"False Friend":"False Friend","Semantic Shift":"Semantic Shift","Phonological Adaptation":"Phonological","New Compound":"New Compound"};
+const sectionTitle={"False Friend":"Part I - False Friends","Semantic Shift":"Part II - Semantic Shifts","Phonological Adaptation":"Part III - Phonological Adaptations","New Compound":"Part IV - New Compounds"};
+let activeCat="all",query="";
+
+// Improved speak function that works on iPad, iPhone, and desktop
+function speak(text, btn) {
+  // Cancel any ongoing speech
+  window.speechSynthesis.cancel();
+  
+  // Visual feedback
+  document.querySelectorAll('.audio-btn').forEach(b => b.classList.remove('playing'));
+  if (btn) btn.classList.add('playing');
+  
+  const trySpeak = () => {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ko-KR';
+    u.rate = 0.85;
+    u.onend = () => { if (btn) btn.classList.remove('playing'); };
+    u.onerror = () => { if (btn) btn.classList.remove('playing'); };
+    
+    // Try to find a Korean voice
+    const voices = window.speechSynthesis.getVoices();
+    const koVoice = voices.find(v => v.lang.startsWith('ko'));
+    if (koVoice) u.voice = koVoice;
+    
+    window.speechSynthesis.speak(u);
+  };
+  
+  // On iOS, voices may not be loaded yet - wait for them
+  if (window.speechSynthesis.getVoices().length === 0) {
+    window.speechSynthesis.onvoiceschanged = trySpeak;
+    // Fallback timeout in case onvoiceschanged doesn't fire
+    setTimeout(trySpeak, 200);
+  } else {
+    trySpeak();
+  }
+}
+
+const tgSVG=`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#012169" stroke-width="2"/>
+  <path d="M50,4 A23,23 0 0,1 50,50 A23,23 0 0,0 50,96 A46,46 0 0,1 50,4Z" fill="#C8102E"/>
+  <path d="M50,4 A23,23 0 0,0 50,50 A23,23 0 0,1 50,96 A46,46 0 0,0 50,4Z" fill="#012169"/>
+  <circle cx="50" cy="27" r="11" fill="#012169"/>
+  <circle cx="50" cy="73" r="11" fill="#C8102E"/>
+</svg>`;
+
+function render(){
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
+  const filtered=data.filter(e=>{
+    const catOk=activeCat==="all"||e.c===activeCat;
+    const q=query.toLowerCase();
+    return catOk&&(e.ko.includes(q)||e.r.toLowerCase().includes(q)||e.en.toLowerCase().includes(q)||e.sk.toLowerCase().includes(q));
+  });
+  document.getElementById('count').textContent=filtered.length+' entr'+(filtered.length===1?'y':'ies');
+  const order=["False Friend","Semantic Shift","Phonological Adaptation","New Compound"];
+  const groups=activeCat==="all"
+    ?order.map(c=>({c,items:filtered.filter(e=>e.c===c)})).filter(g=>g.items.length)
+    :[{c:activeCat,items:filtered}];
+  let delay=0;
+  groups.forEach(g=>{
+    if(activeCat==="all"){
+      const div=document.createElement('div');div.className='section-divider';div.dataset.section=g.c;
+      div.innerHTML=`<div class="sec-inner"><div class="line"></div><h2>${sectionTitle[g.c]}</h2><span class="cbadge">${g.items.length}</span><div class="line"></div></div><div class="sec-stripe"></div>`;
+      grid.appendChild(div);
+    }
+    g.items.forEach(e=>{
+      const[exKo,exEn]=e.ex.includes(' - ')?e.ex.split(' - '):[e.ex,''];
+      const card=document.createElement('div');card.className='card';card.dataset.cat=e.c;
+      card.style.animationDelay=delay*20+'ms';
+      card.innerHTML=`
+        <div class="card-tg-wm">${tgSVG}</div>
+        <div class="card-top">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div><div class="card-ko">${e.ko}</div><div class="card-rom">${e.r}</div></div>
+            <button class="audio-btn" title="Listen">🔊</button>
+          </div>
+          <span class="badge">${catLabel[e.c]}</span>
+        </div>
+        <div class="card-en">from English <b>${e.en}</b></div>
+        <div class="card-meaning">${e.sk}</div>
+        <div class="card-details">
+          <div class="dr">
+            <div class="dl">Analysis</div>
+            <div class="dv">
+              <span class="ll">Haugen type</span>${e.h}
+              <span class="ll">Schaffer category</span>${e.s}
+              <span class="ll">Mechanism</span>${e.p}
+            </div>
+          </div>
+          <div class="nk-row">
+            <div class="dl">NK Equivalent</div>
+            <div class="dv"><span class="nk-ko">${e.nk}</span><span class="nk-note">${e.nn}</span></div>
+          </div>
+          <div class="ex-row">
+            <div class="ex-ko">${exKo}</div>
+            ${exEn?`<div class="ex-en">${exEn}</div>`:''}
+          </div>
+        </div>
+        <div class="toggle">Click to expand analysis ▾</div>`;
+      const audioBtn = card.querySelector('.audio-btn');
+      audioBtn.addEventListener('click', ev => { ev.stopPropagation(); speak(e.ko, audioBtn); });
+      card.addEventListener('click',()=>{
+        card.classList.toggle('open');
+        card.querySelector('.toggle').textContent=card.classList.contains('open')?'Click to collapse ▴':'Click to expand analysis ▾';
+      });
+      grid.appendChild(card);delay++;
+    });
+  });
+}
+
+// Pre-load voices on page load (helps iOS)
+window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+window.speechSynthesis.getVoices();
+
+document.querySelectorAll('nav button').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');activeCat=btn.dataset.cat;render();
+}));
+document.getElementById('search').addEventListener('input',e=>{query=e.target.value;render();});
+render();
+</script>
+
+</body>
+</html>
